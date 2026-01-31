@@ -1,0 +1,484 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+/* ================= HEADER ================= */
+header {
+  padding: 25px;
+  text-align: center;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ================= CONTROLS ================= */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.controls input,
+.controls select,
+.controls button {
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.controls button {
+  background: #ffd200;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= CART ================= */
+.cart {
+  background: rgba(255,255,255,0.2);
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart.bump {
+  animation: bump 0.3s ease;
+}
+
+@keyframes bump {
+  50% { transform: scale(1.3); }
+}
+
+/* ================= PRODUCTS GRID ================= */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+/* ================= PRODUCT CARD ================= */
+.product {
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+  color: #333;
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+}
+
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.product img:hover {
+  transform: scale(1.1);
+}
+
+.product h3 {
+  margin: 10px 0;
+}
+
+.product p {
+  font-size: 14px;
+  color: #555;
+}
+
+.product button {
+  margin: 5px;
+}
+
+/* ================= ADD TO CART ================= */
+.add-cart {
+  background: linear-gradient(90deg,#667eea,#764ba2);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.add-cart:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ================= VIEW BUTTON ================= */
+.view {
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.view:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ================= LOADER ================= */
+.loader {
+  display: none;
+  margin: 60px auto;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ddd;
+  border-top: 6px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pagination button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: black;
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  width: 320px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.modal-animate {
+  animation: zoom 0.4s ease;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.7); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ================= CHECKOUT BTN ================= */
+.checkout-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+/* ================= SKELETON ================= */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.skeleton {
+  height: 250px;
+  border-radius: 20px;
+  background: linear-gradient(90deg,#ccc,#eee,#ccc);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% {background-position: -200px;}
+  100% {background-position: 200px;}
+}
+
+/* ================= DARK MODE ================= */
+.dark {
+  background: #111;
+  color: white;
+}
+
+.dark header {
+  background: #000;
+}
+
+.dark .product {
+  background: #222;
+  color: white;
+}
+
+.dark .product p {
+  color: #ccc;
+}
+/* ================= CONTACT ================= */
+/* ================= CONTACT SECTION ================= */
+.contact-section {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  display: block;
+  padding: 25px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.contact-card h3 {
+  margin-bottom: 10px;
+}
+
+/* COLORS */
+.contact-card.email { background: linear-gradient(135deg,#ff512f,#dd2476); }
+.contact-card.phone { background: linear-gradient(135deg,#36d1dc,#5b86e5); }
+.contact-card.location { background: linear-gradient(135deg,#11998e,#38ef7d); }
+.contact-card.social { background: linear-gradient(135deg,#ee0979,#ff6a00); }
+
+/* HOVER EFFECT */
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+/* ================= WHATSAPP ================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 28px;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 999;
+  box-shadow: 0 10px 20px rgba(0,0,0,.3);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ================= LIVE CHAT ================= */
+/* ===== CHAT UPGRADE ===== */
+.chat-header {
+  background: linear-gradient(90deg,#ff512f,#dd2476);
+  font-weight: bold;
+}
+
+.chat-input button {
+  background: linear-gradient(90deg,#667eea,#764ba2);
+  color: white;
+  border-radius: 10px;
+}
+
+.msg.user {
+  background: linear-gradient(90deg,#667eea,#764ba2);
+  color: white;
+}
+
+.msg.bot {
+  background: #f1f1f1;
+  color: black;
+}
+
+
+/* ================= CONTACT FORM ================= */
+.contact-form-section {
+  background: white;
+  color: black;
+  padding: 50px;
+  text-align: center;
+}
+
+.contact-form-section input,
+.contact-form-section textarea {
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact-form-section button {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ================= FAQ ================= */
+.faq-section {
+  padding: 50px;
+  background: #f5f5f5;
+  color: black;
+}
+
+.faq {
+  background: white;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.faq p {
+  display: none;
+  margin-top: 10px;
+}
+
+/* ================= MAP ================= */
+.map-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+}
+/* ===== COLORFUL FORM ===== */
+.contact-form-section {
+  background: linear-gradient(135deg,#ff512f,#dd2476);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-form-section h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.color-form {
+  max-width: 450px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.3);
+}
+
+.color-form input,
+.color-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.color-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg,#667eea,#764ba2);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.color-form button:hover {
+  transform: scale(1.05);
+}
